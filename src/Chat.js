@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react'
-
+import ScrollToBottom  from 'react-scroll-to-bottom';
 function Chat({ socket, username, room }) {
     let messageRef = useRef();
     let mostRecentMessageRef = useRef();
@@ -42,7 +42,7 @@ function Chat({ socket, username, room }) {
                 <div className='chat-header'>
                     <p>Live Chat</p>
                 </div>
-                <div className='chat-body'>
+                <ScrollToBottom  className='chat-body'>
                     {messageLog.map((chat, i) => {
                         return (
                             <div
@@ -60,7 +60,7 @@ function Chat({ socket, username, room }) {
                         )
                     })}
                     <div ref={mostRecentMessageRef}></div>
-                </div>
+                </ScrollToBottom >
                 <div className='chat-footer'>
                     <div className='chat-input-group'>
                         <input 
